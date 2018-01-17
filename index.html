@@ -8,9 +8,36 @@
   </head>
   <body>
     <main id="main">
+      <form id="recipe-form" onsubmit="createRecipe();return false;">
+        Name: <input type="text" id="name"><br>
+        Description: <input type="text" id="description"><br>
+        Ingredients: <input type="text" name="ingredients"><br>
+        <input type="text" name="ingredients"><br>
+        <input type="text" name="ingredients"><br>
+        <input type="text" name="ingredients"><br>
+        <input type="text" name="ingredients"><br>
+        <input type="submit">
+      </form>
     </main>
+
     <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="index.js"></script>
+     <!-- This template should contain the recipe `name` and
+     an "Edit Recipe" link, and render the `recipeDetailsPartial`
+     in step 3. Render this template with the recipe data when the
+     user submits the form. -->
+    <script id="recipe-template" type="text/x-handlebars-template">
+      Name: {{name}}
+      <a href="#" onclick="displayEditForm();">Edit Recipe</a></footer>>
+      {{> recipeDetailsPartial }}
+    </script>
+
+    <script id="recipe-details-partial" type="text/x-handlebars-template">
+      Description: {{description}}
+      ingredients: {{#each ingredients}}
+        {{ingredient this}}
+      {{/each}}
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
